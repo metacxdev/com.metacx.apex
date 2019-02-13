@@ -1,0 +1,14 @@
+Trigger accountChanged on Account (after update, after insert) {
+
+String acctid;
+String aname;
+for(Account a : Trigger.New) {
+        aname = a.Name;
+        acctid = a.Id;
+    }
+
+  MetacxEventHandler.MetacxEventHandler(JSON.serialize(Trigger.old), JSON.serialize(Trigger.new), 'sf-account-changed', acctid, aname);
+  
+  System.Debug(Trigger.old);
+  
+}

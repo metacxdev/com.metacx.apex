@@ -1,0 +1,64 @@
+global class MetacxEventHandler
+{
+    
+
+    @future (callout=true)
+    public static void MetacxEventHandler(String obj, String eventKey) {
+    
+        String authEndpoint = 'https://api.metacx.com/getToken';
+        String eventEndpoint = 'https://api.metacx.com/events';
+        String clientId = '<your client id>';
+        String clientSecret = '<your client secrete>';
+   
+        Http http = new Http();
+        HttpRequest request = new HttpRequest();
+        request.setEndpoint(authEndpoint);
+        request.setMethod('POST');
+        request.setHeader('content-type', 'application/json');
+        request.setBody('{"clientId": "' + clientId + '","clientSecret": "' + clientSecret + '"}'); 
+
+        HttpResponse response = http.send(request);
+        
+        System.Debug(response.getBody());
+        
+        JSONParser parser = JSON.createParser(response.getBody());
+
+        String accessToken;
+        
+        // If the request is successful, parse the JSON response.
+        if (response.getStatusCode() == 200) {
+            while (parser.nextToken() != null) {
+            if ((parser.getCurrentToken() == JSONToken.FIELD_NAME)){
+                String fieldName = parser.getText();
+                parser.nextToken();
+                if(fieldName == 'accessToken') {
+                    accessToken = parser.getText();
+                }
+            }
+        }
+
+            System.Debug('Access Token: ' + accessToken);
+        }
+    
+   
+        HttpRequest eventRequest = new HttpRequest();
+        eventRequest.setEndpoint(eventEndpoint);
+        eventRequest.setMethod('POST');
+        eventRequest.setHeader('content-type', 'application/json');
+        eventRequest.setHeader('Authorization', 'Bearer ' + accessToken);
+        eventRequest.setBody('{"eventKey": "' + eventKey + '","smartKeys": [{"name": "companyid","alternateId": "SFID","field": "Id" }],"data": ' + obj + '}');
+        
+        System.Debug(eventRequest.getBody());
+
+        HttpResponse eventResponse = http.send(eventRequest);
+        
+        System.Debug(eventResponse.getBody());
+        
+        JSONParser parser2 = JSON.createParser(eventResponse.getBody());
+        
+        // If the request is successful, parse the JSON response.
+        if (eventResponse.getStatusCode() == 200) {
+            System.Debug('200 received');
+        }
+    }
+}
