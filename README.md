@@ -3,8 +3,8 @@
 ## Set up Remote Sites in your Sandbox and Production Orgs
 Add two remote sites in Salesforce under Setup > Security > Remote Site Settings.
 
--Remote Site Name: MetaCXAuth
--Remote Site URL: https://api.metacx.com/getToken
+- Remote Site Name: MetaCXAuth
+- Remote Site URL: https://api.metacx.com/getToken
 
 and
 
@@ -17,8 +17,8 @@ Add the apex classes and triggers to your Salesforce instance. Replace the clien
 
 ## Deploy Apex Classes and Triggers to your Salesforce Production Org
 
-*Navigate to Setup > Environments > Change Sets > Outbound Change Sets in your Salesforce sandbox.
-*Create a change set and upload.
+- Navigate to Setup > Environments > Change Sets > Outbound Change Sets in your Salesforce sandbox.
+- Create a change set and upload.
 
-*Navigate to Setup > Environments >Change Sets > Inbound Change Sets in your Salesforce production account.
-*Deploy the change set you uploaded from your sandbox.
+- Navigate to Setup > Environments >Change Sets > Inbound Change Sets in your Salesforce production account.
+- Deploy the change set you uploaded from your sandbox.
