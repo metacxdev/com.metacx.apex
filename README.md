@@ -3,8 +3,8 @@
 ## Set up Remote Sites in your Sandbox and Production Orgs
 Add two remote sites in Salesforce under Setup > Security > Remote Site Settings.
 
-*Remote Site Name: MetaCXAuth
-*Remote Site URL: https://api.metacx.com/getToken
+-Remote Site Name: MetaCXAuth
+-Remote Site URL: https://api.metacx.com/getToken
 
 and
 
