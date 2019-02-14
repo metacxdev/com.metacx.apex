@@ -1,0 +1,25 @@
+@isTest
+private class MetaCXTests {
+    @isTest static void AccountInsertTest() {
+        
+        // Test data setup
+        Account acct = new Account(Name='Test Account 8');
+        upsert acct;
+        
+        // Perform test
+        Test.startTest();
+        Test.setMock(HttpCalloutMock.class, new MetaCXEventHandlerMockImpl());
+        Database.UpsertResult result = Database.upsert(acct, false);
+        Test.stopTest();
+        
+        System.assert(result.isSuccess());
+    }
+    
+    @isTest static void MetaCXEventHandlerTest() {
+
+        Test.setMock(HttpCalloutMock.class, new MetaCXEventHandlerMockImpl());
+        
+        MetacxEventHandler.Invoke('','');
+    }
+    
+}

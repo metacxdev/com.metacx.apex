@@ -3,12 +3,12 @@ global class MetacxEventHandler
     
 
     @future (callout=true)
-    public static void MetacxEventHandler(String obj, String eventKey) {
+    public static void Invoke(String obj, String eventKey) {
     
         String authEndpoint = 'https://api.metacx.com/getToken';
         String eventEndpoint = 'https://api.metacx.com/events';
-        String clientId = '<your client id>';
-        String clientSecret = '<your client secrete>';
+        String clientId = '<client id>';
+        String clientSecret = '<client secret>';
    
         Http http = new Http();
         HttpRequest request = new HttpRequest();

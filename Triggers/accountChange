@@ -1,9 +1,8 @@
 Trigger accountChange on Account (after update, after insert) {
 
     if (Trigger.isInsert) {
-        MetacxEventHandler.MetacxEventHandler(JSON.serialize(Trigger.New), 'sf-account-inserted');
+        MetacxEventHandler.Invoke(JSON.serialize(Trigger.New), 'sf-account-inserted');
     } else if (Trigger.isUpdate) {
-        MetacxEventHandler.MetacxEventHandler(JSON.serialize(Trigger.New), 'sf-account-updated');
+        MetacxEventHandler.Invoke(JSON.serialize(Trigger.New), 'sf-account-updated');
     }
- 
 }

@@ -1,0 +1,5 @@
+global class MetaCXEventHandlerMockImpl implements HttpCalloutMock {
+    global HTTPResponse respond(HTTPRequest req) {
+        return new HTTPResponse();
+    }
+}

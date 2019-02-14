@@ -1,9 +1,0 @@
-Trigger opportunityChange on Opportunity (after update, after insert) {
-
-    if (Trigger.isInsert) {
-        MetacxEventHandler.MetacxEventHandler(JSON.serialize(Trigger.New), 'sf-opportunity-inserted');
-    } else if (Trigger.isUpdate) {
-        MetacxEventHandler.MetacxEventHandler(JSON.serialize(Trigger.New), 'sf-opportunity-updated');
-    }
-    
-}
