@@ -8,8 +8,8 @@ Add two remote sites in Salesforce under Setup > Security > Remote Site Settings
 
 and
 
-*Remote Site Name: MetaCXEvents
-*Remote Site URL: https://api.metacx.com/events
+- Remote Site Name: MetaCXEvents
+- Remote Site URL: https://api.metacx.com/events
 
 ## Setup Apex Classes and Triggers in your Salesforce Sandbox
 
