@@ -1,6 +1,6 @@
 # Apex Classes and Triggers for MetaCX
 
-While the MetaCX Platform does not currently offer an official Salesforce integration, developers can still send events to the MetaCX platform using APEX triggers. The code samples in this project will send Account record insert and update events to a MetaCX connection.
+While the MetaCX Platform has an official Salesforce integration managed package, developers can still send different events to the MetaCX platform using APEX triggers. The code samples in this project will send Account record insert and update events to a MetaCX connection.
 
 ## 1. Set up Remote Sites in your Sandbox and Production Orgs
 Add two remote sites in Salesforce under Setup > Security > Remote Site Settings.
